@@ -13,7 +13,7 @@ def homepage(request):
 
 
 @login_required(login_url="auth_login")
-def deck_list(
+def habit_list(
     request,
 ):
     habits = Habit.objects.all()

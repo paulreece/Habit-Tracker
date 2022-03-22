@@ -39,7 +39,7 @@ class Record(models.Model):
     )
 
     def __str__(self):
-        return self.habit
+        return f"{self.goal_number} {self.date}"
 
     class Meta:
         constraints = [

@@ -20,6 +20,9 @@ class Habit(models.Model):
         User, on_delete=models.CASCADE, null=True, blank=True, related_name="habit_user"
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Record(models.Model):
     date = models.DateField(auto_now_add=datetime.now)
@@ -28,11 +31,17 @@ class Record(models.Model):
         Habit, on_delete=models.CASCADE, null=True, blank=True, related_name="habit"
     )
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, null=True, blank=True, related_name="habit_record_user"
+        User,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="habit_record_user",
     )
+
+    def __str__(self):
+        return self.habit
 
     class Meta:
         constraints = [
-            models.UniqueConstraint(
-                fields=['user', 'date', 'habit'], name='once_a_day')
+            models.UniqueConstraint(fields=["user", "date", "habit"], name="once_a_day")
         ]

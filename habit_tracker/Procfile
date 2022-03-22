@@ -1,2 +1,0 @@
-web: gunicorn habit_tracker.wsgi
-release: python habit_tracker/manage.py migrate

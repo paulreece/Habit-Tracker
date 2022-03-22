@@ -22,7 +22,7 @@ class Habit(models.Model):
 
 
 class Record(models.Model):
-    date = models.DateTimeField(auto_now_add=datetime.now)
+    date = models.DateField(auto_now_add=datetime.now)
     goal_number = models.IntegerField(default=0)
     habit = models.ForeignKey(
         Habit, on_delete=models.CASCADE, null=True, blank=True, related_name="habit"
@@ -30,7 +30,9 @@ class Record(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True, related_name="habit_record_user"
     )
-    constraints = [
-        models.UniqueConstraint(
-            fields=['user', 'date', 'habit'], name='once_a_day')
-    ]
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'date', 'habit'], name='once_a_day')
+        ]

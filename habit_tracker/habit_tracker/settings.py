@@ -140,6 +140,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'habitapp.User'
 ACCOUNT_ACTIVATION_DAYS = 100
+
 django_on_heroku.settings(locals())
 del DATABASES['default']['OPTIONS']['sslmode']
 # LOGIN_REDIRECT_URL = 'deck_list'

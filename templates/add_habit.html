@@ -2,9 +2,21 @@
 {% load static %}
 
 {% block content %}
-{% if user.is_authenticated %}
-{% if habit.user_id == user.id %}
-<h1> Add a Habit!</h1>
+
+<h1> Add a New Habit!</h1>
+<form  method="POST">
+    {% csrf_token %}
+    <div class="w-60">
+    <div>Habit Name:<input class="input" type="text" name={{form.name.html_name}} id="habit-name-input" value="{{habit.name}}"></div>
+    <div>Description:<input class="input" type="text" name={{form.description.html_name}} id="habit-description-input" value="{{habit.description}}"></div>
+    <div>Goal:<input class="input" type="text" name={{form.goal.html_name}} id="habit-goal-input" value="{{habit.goal}}"></div>
+    </div>
+</div>
+    <div>
+    <button class="button is-primary" type="submit">Save Habit</button>
+    </div>
+</form>
+<h1> Create a Deck.</h1>
 <div class="form">
     <form method="POST">
     {% csrf_token %}
@@ -21,20 +33,4 @@
 </div>
 </form>
 </div>
-{% endif %}
-{% endif %}
 {% endblock content %}
-
-<h1> Add a New Habit!</h1>
-<form  method="POST">
-    {% csrf_token %}
-    <div class="w-60">
-    <div>Habit Name:<input class="input" type="text" name={{form.name.html_name}} id="habit-name-input" value="{{habit.name}}"></div>
-    <div>Description:<input class="input" type="text" name={{form.description.html_name}} id="habit-description-input" value="{{habit.description}}"></div>
-    <div>Goal:<input class="input" type="text" name={{form.goal.html_name}} id="habit-goal-input" value="{{habit.goal}}"></div>
-    </div>
-</div>
-    <div>
-    <button class="button is-primary" type="submit">Save Habit</button>
-    </div>
-</form>

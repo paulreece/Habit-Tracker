@@ -146,4 +146,4 @@ del DATABASES["default"]["OPTIONS"]["sslmode"]
 
 LOGIN_REDIRECT_URL = "homepage"
 
-DATE_FORMAT = "%d/%m/%y"
+# DATE_FORMAT = "%d/%m/%y"

@@ -32,7 +32,7 @@ urlpatterns = [
     ),
     path("<slug:slug>/<int:pk>/edit", habit_views.edit_record, name="edit_record"),
     path(
-        "<slug:slug>/<int:pk>/<str:str>",
+        "<slug:slug>/<int:pk>",
         habit_views.record_detail,
         name="record_detail",
     ),

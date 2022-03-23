@@ -123,9 +123,9 @@ def edit_record(request, slug, pk):
 
 
 @login_required
-def record_detail(request, slug, pk, str):
+def record_detail(request, slug, pk):
     habit = get_object_or_404(Habit, slug=slug)
-    record = get_object_or_404(Record, pk=pk, str=record.date)
+    record = get_object_or_404(Record, pk=pk)
     return render(
-        request, "habit_detail.html", {"habit": habit, "record": record, "str": str}
+        request, "record_detail.html", {"habit": habit, "record": record}
     )

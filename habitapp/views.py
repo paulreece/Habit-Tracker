@@ -1,3 +1,4 @@
+from django.db import IntegrityError
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Habit, Record
 from .forms import HabitForm, RecordForm
@@ -83,7 +84,10 @@ def add_record(request, slug):
             record = form.save(commit=False)
             record.user_id = user.id
             record.habit_id = habit.id
-            record.save()
+            try:
+                record.save()
+            except IntegrityError:
+                return redirect(to="habit_detail", slug=habit.slug)
             return redirect(to="habit_detail", slug=habit.slug)
 
     return render(request, "add_record.html", {"form": form, "habit": habit})

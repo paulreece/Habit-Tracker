@@ -108,7 +108,7 @@ def edit_record(request, slug, pk):
             record = form.save(commit=False)
             record.habit_id = habit.id
             record.save()
-            return redirect(to="habit_detail")
+            return redirect(to="habit_detail", slug=habit.slug)
     else:
         form = RecordForm(instance=record)
     return render(

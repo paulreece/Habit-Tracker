@@ -7,7 +7,7 @@
     <p>Are you sure you want to delete <span>{{ record.date }}</span>?</p>
     <div>
       <button type="submit">Delete Record</button><br />
-      <a href="{% url 'habit_detail' %}">Cancel</a>
+      <a href="{% url 'habit_detail' slug=habit.slug %}">Cancel</a>
     </div>
   </form>
 </div>

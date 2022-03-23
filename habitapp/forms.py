@@ -9,7 +9,7 @@ class HabitForm(forms.ModelForm):
 
 
 class RecordForm(forms.ModelForm):
-    date = forms.DateField(input_formats=["%b %d, %Y"])
+    date = forms.DateField(input_formats=["%m/%d/%Y"])
 
     class Meta:
         model = Record

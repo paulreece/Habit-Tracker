@@ -88,6 +88,7 @@ def add_record(request, slug):
                 record.save()
             except IntegrityError:
                 return redirect(to="habit_detail", slug=habit.slug)
+        return redirect(to="habit_detail", slug=habit.slug)
 
     return render(request, "add_record.html", {"form": form, "habit": habit})
 

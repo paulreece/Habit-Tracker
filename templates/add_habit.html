@@ -4,6 +4,26 @@
 {% block content %}
 {% if user.is_authenticated %}
 {% if habit.user_id == user.id %}
+<h1> Add a Habit!</h1>
+<div class="form">
+    <form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+<div>
+    <div>
+        <label class="input" for="{{field.id_for_label}}">{{field.label}}</label>
+        {{ field }}
+    </div>
+</div>
+{% endfor %}
+<div>
+    <button class="button is-primary" type="submit"> Save </button>
+</div>
+</form>
+</div>
+{% endif %}
+{% endif %}
+{% endblock content %}
 
 <h1> Add a New Habit!</h1>
 <form  method="POST">
@@ -18,7 +38,3 @@
     <button class="button is-primary" type="submit">Save Habit</button>
     </div>
 </form>
-
-{% endif %}
-{% endif %}
-{% endblock content %}

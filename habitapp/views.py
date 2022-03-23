@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 
 def base_login(request):
     if request.user.is_authenticated:
-        return redirect("hompage")
+        return redirect("homepage")
 
     return render(request, "base.html")
 

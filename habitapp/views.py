@@ -23,7 +23,7 @@ def homepage(
 @login_required
 def habit_detail(request, slug):
     habit = get_object_or_404(Habit, slug=slug)
-    records = Record.objects.all()
+    records = Record.objects.all().filter(habit_id=habit.id)
     return render(request, "habit_detail.html", {"habit": habit, "records": records})
 
 @ login_required

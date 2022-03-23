@@ -22,4 +22,4 @@ urlpatterns = [
     path("accounts/", include("registration.backends.simple.urls")),
     path("", habit_views.base_login, name="base_login"),
     path("home", habit_views.homepage, name="homepage"),
-]
+    path("habit/<int:pk>", habit_views.habit_detail, name="habit_detail"),

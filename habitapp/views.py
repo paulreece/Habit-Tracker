@@ -19,3 +19,10 @@ def homepage(
     habits = Habit.objects.all()
     records = Record.objects.all()
     return render(request, "homepage.html", {"habits": habits, "records": records})
+
+
+@login_required
+def habit_detail(request, pk):
+    habit = get_object_or_404(Habit, pk=pk)
+
+    return render(request, "habit_detail.html", {"habit": habit})

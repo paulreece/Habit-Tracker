@@ -3,19 +3,14 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-{% for habit in habits %}
-{% if habit.user_id == user.id %}
 
 <div class="pb3">
     <div class="box w-60 h-75 pb7 pt4">
-        <p class="p1 f3 lh-copy"><a href={% url 'habit_detail' habit.pk%} >{{ habit.name }}</a> </p>
+        <p class="p1 f3 lh-copy">{{ habit.name }} </p>
         <p>Description: {{ habit.description }} </p>
         <p>Goal: {{ habit.goal }} </p>
   <div class="pt4">
-  
 
-{% endif %}
-{% endfor %}
-<a href={% url 'auth_logout' %} class="db">Log Out</a>
+
 {% endif %}
 {% endblock content %}

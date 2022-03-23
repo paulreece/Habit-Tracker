@@ -5,17 +5,17 @@ from .models import User, Habit, Record
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 
-def homepage(request):
+def base_login(request):
     if request.user.is_authenticated:
-        return redirect("habit_list")
+        return redirect("hompage")
 
     return render(request, "base.html")
 
 
 @login_required(login_url="auth_login")
-def habit_list(
+def homepage(
     request,
 ):
     habits = Habit.objects.all()
     records = Record.objects.all()
-    return render(request, "habit_list.html", {"habits": habits, "recods": records})
+    return render(request, "homepage.html", {"habits": habits, "records": records})

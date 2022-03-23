@@ -14,6 +14,8 @@
         <p>Description: {{ habit.description }} </p>
         <p>Goal: {{ habit.goal }} </p>
   <div class="pt4">
+    <a href={% url 'edit_habit' slug=deck.slug %} class=>Edit Habit |</a>
+    <a href={% url 'delete_habit' slug=deck.slug %} class=>Delete Habit </a>
 </div>
 </div>
 </div>

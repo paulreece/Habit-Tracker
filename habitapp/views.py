@@ -44,6 +44,32 @@ def add_habit(request, pk):
 
 
 @login_required
+def delete_habit(request, slug):
+    habit = get_object_or_404(Habit, slug=slug)
+    if request.method == "POST":
+        habit.delete()
+        return redirect(to="homepage")
+
+    return render(request, "delete_habit.html", {"habit": habit})
+
+
+@login_required
+def edit_habit(request, slug):
+    habit = get_object_or_404(Habit, slug=slug)
+    user = get_object_or_404(User)
+    if request.method == "POST":
+        form = HabitForm(request.POST, instance=habit)
+        if form.is_valid():
+            habit = form.save(commit=False)
+            habit.user_id = user.id
+            habit.save()
+            return redirect(to="homepage")
+    else:
+        form = HabitForm(instance=habit)
+    return render(request, "edit_habit.html", {"form": form, "habit":habit, "user": user})
+
+
+@login_required
 def add_record(request, slug):
     habit = get_object_or_404(Habit, slug=slug)
     if request.method == "GET":

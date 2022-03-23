@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit Habit</h1>
+
+<div class="control">
+<form action="{% url 'edit_habit' slug=deck.slug pk=user.pk %}" method="POST">
+    {% csrf_token %}
+    <div class="form-field mt3">
+    <label for="{{form.name.id_for_label}}">{{ form.name.label }}</label>
+    <input class="input" type="text" name={{form.name.html_name}} id="habit-name-input" value="{{habit.name }}">
+    </div>
+    <div class="form-field mt3">
+    <label for="{{form.description.id_for_label}}">{{form.description.label }}</label>
+    <input class="input" type="text" name={{form.description.html_name}} id="habit-description-input" value="{{habit.description }}">
+    </div>      
+    <div class="form-field mt3">
+    <label for="{{form.goal.id_for_label}}">{{form.goal.label }}</label>
+    <input class="input" type="text" name={{form.goal.html_name}} id="habit-goal-input" value="{{habit.goal }}">
+    </div>  
+    <div class="mt3">
+    <button class="button is-primary" type="submit">Save changes</button>
+    </div>
+</form>

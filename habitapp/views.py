@@ -74,12 +74,14 @@ def edit_habit(request, slug):
 @login_required
 def add_record(request, slug):
     habit = get_object_or_404(Habit, slug=slug)
+    user = get_object_or_404(User)
     if request.method == "GET":
         form = RecordForm()
     else:
         form = RecordForm(data=request.POST)
         if form.is_valid():
             record = form.save(commit=False)
+            record.user_id = user.id
             record.habit_id = habit.id
             record.save()
             return redirect(to="habit_detail", slug=habit.slug)

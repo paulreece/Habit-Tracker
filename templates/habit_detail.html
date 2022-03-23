@@ -12,14 +12,17 @@
     </div>
     </div>
 {% for record in records %}
+{% if record.habit_id == habit.id}
 <div class="pb4">
 <div class="box w-60 h-75 pb7 pt4">
 <p>Goal Number: {{ record.goal_number }} </p>
 <p>Date: {{ record.date }} </p>
+<div class="pt4">
 </div>
 </div>
-
+</div>
 {% endfor %}
+{% endif %}
 {% endif %}
 {% endif %}
 {% endblock content %}

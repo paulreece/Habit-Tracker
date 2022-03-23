@@ -31,4 +31,9 @@ urlpatterns = [
         "<slug:slug>/<int:pk>/delete", habit_views.delete_record, name="delete_record"
     ),
     path("<slug:slug>/<int:pk>/edit", habit_views.edit_record, name="edit_record"),
+    path(
+        "<slug:slug>/<int:pk>/<str:str>",
+        habit_views.record_detail,
+        name="record_detail",
+    ),
 ]

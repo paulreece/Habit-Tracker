@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+<div class="pb4">
+<div class="box w-60 h-75 pb7 pt4">
+<p>Goal Number: {{ record.goal_number }} </p>
+<p>Date: {{ record.date|date:"m/d/Y" }} </p>
+<div class="pt4">
+</div>
+</div>
+</div>
+<a href={% url 'edit_record' slug=habit.slug pk=record.pk %} class=>Edit Record |</a>
+<a href={% url 'delete_record' slug=habit.slug pk=record.pk %} class=>Delete Record </a>
+
+
+{% endif %}
+{% endif %}
+{% endblock content %}

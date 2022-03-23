@@ -8,7 +8,7 @@
     {% csrf_token %}
     <div class="w-60">
     <div>Goal Number:<input class="input" type="text" name={{form.goal_number.html_name}} id="record-goal_number-input" value="{{record.goal_number}}"></div>
-    <div>Date:<input class="input" type="text" name={{form.date.html_name}} id="record-date-input" value="{{record.date}}"></div>
+    <div>Date:<input class="input" type="text" name={{form.date.html_name}} id="record-date-input" value="{% now "m/d/Y" %}"></div>
     
     </div>
 </div>

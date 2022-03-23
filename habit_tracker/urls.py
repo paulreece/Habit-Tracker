@@ -23,5 +23,6 @@ urlpatterns = [
     path("", habit_views.base_login, name="base_login"),
     path("home", habit_views.homepage, name="homepage"),
     path("<slug:slug>", habit_views.habit_detail, name="habit_detail"),
+    path("<slug:slug>/add", habit_views.add_record, name="add_record"),
     path("<int:pk>/add/", habit_views.add_habit, name="add_habit"),
 ]

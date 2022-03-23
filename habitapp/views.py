@@ -26,10 +26,11 @@ def habit_detail(request, slug):
     records = Record.objects.all().filter(habit_id=habit.id)
     return render(request, "habit_detail.html", {"habit": habit, "records": records})
 
-@ login_required
+
+@login_required
 def add_habit(request, pk):
     user = get_object_or_404(User, pk=pk)
-    if request.method == 'GET':
+    if request.method == "GET":
         form = HabitForm()
     else:
         form = HabitForm(data=request.POST)
@@ -40,3 +41,19 @@ def add_habit(request, pk):
             return redirect(to="homepage")
 
     return render(request, "add_habit.html", {"form": form, "user": user})
+
+
+@login_required
+def add_record(request, slug):
+    habit = get_object_or_404(Habit, slug=slug)
+    if request.method == "GET":
+        form = RecordForm()
+    else:
+        form = RecordForm(data=request.POST)
+        if form.is_valid():
+            record = form.save(commit=False)
+            record.habit_id = habit.id
+            record.save()
+            return redirect(to="habit_detail")
+
+    return render(request, "add_record.html", {"form": form, "habit": habit})

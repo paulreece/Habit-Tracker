@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from datetime import datetime
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 
 class User(AbstractUser):
@@ -35,7 +36,7 @@ class Habit(models.Model):
 
 
 class Record(models.Model):
-    date = models.DateField(auto_now_add=datetime.now)
+    date = models.DateField(default=timezone.now)
     goal_number = models.IntegerField(default=0)
     habit = models.ForeignKey(
         Habit, on_delete=models.CASCADE, null=True, blank=True, related_name="habit"

@@ -93,7 +93,7 @@ def delete_record(request, slug, pk):
     record = get_object_or_404(Record, pk=pk)
     if request.method == "POST":
         record.delete()
-        return redirect(to="habit_detail")
+        return redirect(to="habit_detail", slug=habit.slug)
 
     return render(request, "delete_record.html", {"record": record, "habit": habit})
 

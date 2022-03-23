@@ -2,7 +2,7 @@
 
 {% block content %}
 <div>
-  <form action="{% url 'delete_record' slug=habit.slug %}" method="POST">
+  <form action="{% url 'delete_record' slug=habit.slug pk=record.pk %}" method="POST">
     {% csrf_token %}
     <p>Are you sure you want to delete <span>{{ record.date }}</span>?</p>
     <div>

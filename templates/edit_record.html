@@ -4,7 +4,7 @@
 <h1>Edit Record</h1>
 
 <div class="control">
-<form action="{% url 'edit_record' slug=habit.slug %}" method="POST">
+<form action="{% url 'edit_record' slug=habit.slug pk=record.pk %}" method="POST">
     {% csrf_token %}
     <div class="form-field mt3">
     <label for="{{form.date.id_for_label}}">{{ form.date.label }}</label>

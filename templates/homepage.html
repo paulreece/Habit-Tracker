@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+<section>
 {% if user.is_authenticated %}
 <a href={% url 'add_habit' pk=user.pk %}>Add a New Habit</a>
 {% for habit in habits %}
@@ -13,7 +14,10 @@
         <p>Description: {{ habit.description }} </p>
         <p>Goal: {{ habit.goal }} </p>
   <div class="pt4">
-  
+</div>
+</div>
+</div>
+</section>
 
 {% endif %}
 {% endfor %}

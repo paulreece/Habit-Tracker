@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import User, Habit, Record
 from .forms import HabitForm, RecordForm
 from django.contrib.auth.decorators import login_required, user_passes_test
+from datetime import datetime
 
 
 def base_login(request):
@@ -123,9 +124,9 @@ def edit_record(request, slug, pk):
 
 
 @login_required
-def record_detail(request, slug, pk):
+def record_detail(request, slug, pk, year=None, month=None, day=None):
     habit = get_object_or_404(Habit, slug=slug)
     record = get_object_or_404(Record, pk=pk)
-    return render(
-        request, "record_detail.html", {"habit": habit, "record": record}
-    )
+    user = get_object_or_404(User)
+
+    return render(request, "record_detail.html", {"habit": habit, "record": record})

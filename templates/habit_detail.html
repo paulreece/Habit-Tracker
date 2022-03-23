@@ -19,7 +19,7 @@
 
 <div class="pb4">
 <div class="box w-60 h-75 pb7 pt4">
-<p><a href={% url 'record_detail' slug=habit.slug pk=record.pk  %} >Goal Number: {{ record.goal_number }} </a</p>
+<p><a href={% url 'record_detail' slug=habit.slug pk=record.pk year=record.date.year month=record.date.month day=record.date.day %} >Goal Number: {{ record.goal_number }} </a></p>
 <p>Date: {{ record.date|date:"m/d/Y" }} </p>
 <div class="pt4">
 </div>

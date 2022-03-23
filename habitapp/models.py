@@ -36,7 +36,7 @@ class Habit(models.Model):
 
 
 class Record(models.Model):
-    date = models.DateField(default=datetime.now)
+    date = models.DateField(default=datetime.now, verbose_name="date for plan")
     goal_number = models.IntegerField(default=0)
     habit = models.ForeignKey(
         Habit, on_delete=models.CASCADE, null=True, blank=True, related_name="habit"

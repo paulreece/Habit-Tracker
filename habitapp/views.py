@@ -22,7 +22,7 @@ def homepage(
 
 
 @login_required
-def habit_detail(request, pk):
-    habit = get_object_or_404(Habit, pk=pk)
+def habit_detail(request, slug):
+    habit = get_object_or_404(Habit, slug=slug)
 
     return render(request, "habit_detail.html", {"habit": habit})

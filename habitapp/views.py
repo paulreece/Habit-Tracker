@@ -54,6 +54,6 @@ def add_record(request, slug):
             record = form.save(commit=False)
             record.habit_id = habit.id
             record.save()
-            return redirect(to="habit_detail")
+            return redirect(to="habit_detail", slug=habit.slug)
 
     return render(request, "add_record.html", {"form": form, "habit": habit})

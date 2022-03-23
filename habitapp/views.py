@@ -66,7 +66,9 @@ def edit_habit(request, slug):
             return redirect(to="homepage")
     else:
         form = HabitForm(instance=habit)
-    return render(request, "edit_habit.html", {"form": form, "habit":habit, "user": user})
+    return render(
+        request, "edit_habit.html", {"form": form, "habit": habit, "user": user}
+    )
 
 
 @login_required
@@ -84,15 +86,17 @@ def add_record(request, slug):
 
     return render(request, "add_record.html", {"form": form, "habit": habit})
 
+
 @login_required
 def delete_record(request, slug, pk):
     habit = get_object_or_404(Habit, slug=slug)
     record = get_object_or_404(Record, pk=pk)
     if request.method == "POST":
         record.delete()
-        return redirect(to="homepage")
+        return redirect(to="habit_detail")
 
-    return render(request, "delete_record.html", {"record": record})
+    return render(request, "delete_record.html", {"record": record, "habit": habit})
+
 
 @login_required
 def edit_record(request, slug, pk):
@@ -104,7 +108,9 @@ def edit_record(request, slug, pk):
             record = form.save(commit=False)
             record.habit_id = habit.id
             record.save()
-            return redirect(to="homepage")
+            return redirect(to="habit_detail")
     else:
         form = RecordForm(instance=record)
-    return render(request, "edit_record.html", {"form": form, "habit":habit, "record": record})
+    return render(
+        request, "edit_record.html", {"form": form, "habit": habit, "record": record}
+    )

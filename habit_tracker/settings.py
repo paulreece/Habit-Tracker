@@ -143,4 +143,5 @@ ACCOUNT_ACTIVATION_DAYS = 100
 
 django_on_heroku.settings(locals())
 del DATABASES["default"]["OPTIONS"]["sslmode"]
+
 LOGIN_REDIRECT_URL = "homepage"

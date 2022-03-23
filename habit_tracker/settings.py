@@ -145,3 +145,5 @@ django_on_heroku.settings(locals())
 del DATABASES["default"]["OPTIONS"]["sslmode"]
 
 LOGIN_REDIRECT_URL = "homepage"
+
+# DATE_INPUT_FORMATS = ["%m/%d/%Y"]

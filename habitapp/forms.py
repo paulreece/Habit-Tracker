@@ -9,6 +9,8 @@ class HabitForm(forms.ModelForm):
 
 
 class RecordForm(forms.ModelForm):
+    date = forms.DateField(input_formats=["%b %d, %Y"])
+
     class Meta:
         model = Record
         fields = ["goal_number", "date"]

@@ -18,8 +18,8 @@ from django.urls import path, include
 from habitapp import views as habit_views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("accounts/", include("registration.backends.simple.urls")),
+    path("admin", admin.site.urls),
+    path("accounts", include("registration.backends.simple.urls")),
     path("", habit_views.base_login, name="base_login"),
     path("home", habit_views.homepage, name="homepage"),
     path("<slug:slug>", habit_views.habit_detail, name="habit_detail"),

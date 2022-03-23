@@ -70,7 +70,7 @@ def edit_habit(request, slug):
 
 
 @login_required
-def add_record(request, slug):
+def add_habit(request, slug):
     habit = get_object_or_404(Habit, slug=slug)
     if request.method == "GET":
         form = RecordForm()

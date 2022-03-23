@@ -25,6 +25,6 @@ urlpatterns = [
     path("<slug:slug>", habit_views.habit_detail, name="habit_detail"),
     path("<slug:slug>/edit", habit_views.edit_habit, name="edit_habit"),
     path("<slug:slug>/delete", habit_views.delete_habit, name="delete_habit"),
-    path("<slug:slug>/add", habit_views.add_record, name="add_record"),
+    path("<slug:slug>/add", habit_views.add_habit, name="add_habit"),
     path("<int:pk>/add/", habit_views.add_habit, name="add_habit"),
 ]

@@ -40,16 +40,20 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     "registration",
     "habitapp",
+    "django_extensions",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -145,5 +149,8 @@ django_on_heroku.settings(locals())
 del DATABASES["default"]["OPTIONS"]["sslmode"]
 
 LOGIN_REDIRECT_URL = "homepage"
-
+# LOGOUT_REDIRECT_URL = "homepage"
 # DATE_FORMAT = "%d/%m/%y"
+INTERNAL_IPS = [
+    "127.0.0.1",
+]

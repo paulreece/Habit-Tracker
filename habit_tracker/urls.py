@@ -19,6 +19,7 @@ from habitapp import views as habit_views
 
 urlpatterns = [
     path("admin", admin.site.urls),
+    path("__debug__/", include("debug_toolbar.urls")),
     path("accounts", include("registration.backends.simple.urls")),
     path("", habit_views.base_login, name="base_login"),
     path("home", habit_views.homepage, name="homepage"),

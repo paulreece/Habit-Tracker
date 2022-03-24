@@ -15,7 +15,7 @@
 </div>
 </div>
 <a href={% url 'edit_record' slug=habit.slug pk=record.pk %} class=>Edit Record |</a>
-<a href={% url 'delete_record' slug=habit.slug pk=record.pk %} class=>Delete Record </a>
-
+<a href={% url 'delete_record' slug=habit.slug pk=record.pk %} class=>Delete Record |</a>
+<a href={% url 'habit_detail' habit.slug %} >Back to Habit</a>
 
 {% endblock content %}

@@ -14,7 +14,8 @@
         <p>Goal: {{ habit.goal }} </p>
     </div>
     </div>
-<a href={% url 'add_record' habit.slug %}>Add a New Record</a>
+<a href={% url 'add_record' habit.slug %}>Add a New Record |</a>
+<a href={% url 'homepage' %}>Back to Habit List</a>
 {% for record in records %}
 
 <div class="pb4">

@@ -12,6 +12,7 @@ django-registration-redux = "*"
 django = "*"
 django-on-heroku = "*"
 gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 flake8 = "*"

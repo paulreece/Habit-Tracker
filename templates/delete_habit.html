@@ -6,9 +6,11 @@
     {% csrf_token %}
     <p>Are you sure you want to delete <span>{{ habit.name }}</span>?</p>
     <div>
-      <button type="submit">Delete Habit</button><br />
-      <a href="{% url 'homepage' %}">Cancel</a>
+    <button class="button is-danger" type="submit">Delete Habit</button>
     </div>
   </form>
+  <div>
+    <a href={% url 'homepage' %} class="white" ><button class="button is-primary" >Cancel</button></a>
+    </div>
 </div>
 {% endblock %}

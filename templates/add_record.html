@@ -15,6 +15,10 @@
     <div>
     <button class="button is-primary" type="submit">Save Record</button>
     </div>
+    <div>
+        <button class="button is-danger" ><a href={% url 'habit_detail' habit.slug%} ></a>Cancel</button>
+        </div>
 </form>
+
 
 {% endblock content %}

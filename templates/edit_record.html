@@ -17,6 +17,11 @@
     <div class="mt3">
         <button class="button is-primary" type="submit">Save changes</button>
         </div>
+        <div>
+            <a href={% url 'habit_detail' habit.slug%} ></a><button class="button is-danger white" >Cancel</button></a>
+            </div>
 </form>
+
+
 </div>
 {% endblock %}

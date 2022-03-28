@@ -3,6 +3,9 @@ from django.contrib.auth.models import AbstractUser
 from datetime import datetime
 from django.template.defaultfilters import slugify
 from django.utils import timezone
+from calendar import HTMLCalendar
+from datetime import date
+from itertools import groupby
 
 
 class User(AbstractUser):
@@ -26,6 +29,7 @@ class Habit(models.Model):
         blank=True,
         unique=True,
     )
+    unit = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.name

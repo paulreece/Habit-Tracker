@@ -29,9 +29,15 @@ urlpatterns = [
     path("<slug:slug>/delete", habit_views.delete_habit, name="delete_habit"),
     path("<slug:slug>/add", habit_views.add_record, name="add_record"),
     path(
-        "<slug:slug>/<int:pk>/delete", habit_views.delete_record, name="delete_record"
+        "<slug:slug>/<int:pk>/<int:year>/<int:month>/<int:day>/delete",
+        habit_views.delete_record,
+        name="delete_record",
     ),
-    path("<slug:slug>/<int:pk>/edit", habit_views.edit_record, name="edit_record"),
+    path(
+        "<slug:slug>/<int:pk>/<int:year>/<int:month>/<int:day>/edit",
+        habit_views.edit_record,
+        name="edit_record",
+    ),
     path(
         "<slug:slug>/<int:pk>/<int:year>/<int:month>/<int:day>/",
         habit_views.record_detail,

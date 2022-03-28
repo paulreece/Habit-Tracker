@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+<div class="ma5">
 <h1> Add a New Record!</h1>
 <form  method="POST">
     {% csrf_token %}
@@ -19,6 +19,6 @@
         <button class="button is-danger" ><a href={% url 'habit_detail' habit.slug%} ></a>Cancel</button>
         </div>
 </form>
-
+</div>
 
 {% endblock content %}

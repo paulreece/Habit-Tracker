@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed&display=swap" rel="stylesheet">
+<link href="{% static 'main.min.css' %}" rel='stylesheet' />
 
   <title> Habit Tracker </title>
   {% block javascript %}{% endblock javascript %}
@@ -36,7 +37,7 @@
 
    </header>
 
-  <div class="ma5">
+  <div >
     {% block content %}
     {% endblock content %}
   </div>

@@ -5,7 +5,7 @@ from .models import User, Habit, Record
 class HabitForm(forms.ModelForm):
     class Meta:
         model = Habit
-        fields = ["name", "description", "goal"]
+        fields = ["name", "description", "goal", "unit"]
 
 
 class RecordForm(forms.ModelForm):

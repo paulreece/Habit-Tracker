@@ -1,6 +1,6 @@
 # Heroku URL
 
-(https://habit-tracker-444.herokuapp.com/play-guitar)
+[My Habit Tracker Site](https://habit-tracker-444.herokuapp.com/play-guitar)
 
 # Habit Tracker
 
